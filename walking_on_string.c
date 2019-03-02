@@ -2,6 +2,15 @@
 #include <unistd.h>
 #include <stdarg.h>
 
+
+typedef struct			s_types
+{
+	int ints;
+	char chars;
+	float floats;
+	void *arg;
+}						t_ype;
+
 size_t just_to_print_len(char *str, int *persent_indicate)
 {
 	size_t index;
@@ -24,9 +33,11 @@ char *ft_putstr_len(char *str, size_t len)
 	return (str + len);
 }
 
-size_t recognise_types(char *str, char *current_argument)
+size_t recognise_types(char *str/*, t_ype *type*/)
 {
-	return (3);
+	// if (!ft_strcmp(str + 1, "c"))
+	// 	re
+	return 3;
 }
 
 void print_type(char *type, char *current_argument)
@@ -35,11 +46,13 @@ void print_type(char *type, char *current_argument)
 	return ;
 }
 
-char *post_persent(char *str, char *current_argument)
+char *post_persent(char *str, va_list arguments)
 {
 	size_t type_len;
+	char *current_argument;
 
-	if ((type_len = recognise_types(str, current_argument)))
+	current_argument = va_arg(arguments, char *);
+	if ((type_len = recognise_types(str/*, current_argument*/)))
 		print_type(str, current_argument);
 	return (str + type_len);
 }
@@ -50,22 +63,24 @@ void ft_printf(const char *format, ...)
 	int persent_indicate;
 	va_list arguments;
 	char *current_argument;
+	t_ype type;
 
 	str = (char *)format;
 	va_start(arguments, format);
 	while (str)
 	{
-		current_argument = va_arg(arguments, char *);
+		//current_argument = va_arg(arguments, char *);
 		str = ft_putstr_len(str, just_to_print_len(str, &persent_indicate));
+
 		if (persent_indicate)
-			str = post_persent(str, current_argument);
+			str = post_persent(str, arguments);
 	}
 	va_end(arguments);
 }
 
 int main()
 {
-	char *str = "ha-ha, lol% 1234567890 %1234567890\n";
-	ft_printf(str, 12, " oh2 ");
+	char *str = "ha-ha, lol%c 1234567890 %1234567890\n";
+	ft_printf(str, '5', " oh2 ");
 	return 0;
 }
