@@ -6,7 +6,7 @@
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 16:35:44 by kbethany          #+#    #+#             */
-/*   Updated: 2019/04/18 18:17:18 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/06/15 19:05:16 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	print_flag_sc(t_flag *flag, va_list *arguments)
 {
 	int		i;
-	char temp;
+	char	temp;
 
 	i = 0;
 	if (flag->flag_5 == 's' || flag->flag_5 == 'S')

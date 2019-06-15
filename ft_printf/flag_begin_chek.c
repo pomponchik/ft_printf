@@ -6,13 +6,13 @@
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 17:09:22 by kbethany          #+#    #+#             */
-/*   Updated: 2019/04/18 17:56:53 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/06/15 15:45:08 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-size_t spaces(char *str)
+size_t	spaces(char *str)
 {
 	size_t result;
 
@@ -25,6 +25,20 @@ size_t spaces(char *str)
 	return (result);
 }
 
+void	flag_first(char a, t_flag *flag)
+{
+	if (a == '0')
+		flag->null = 1;
+	if (a == '+')
+		flag->plus = 1;
+	if (a == '-')
+		flag->min = 1;
+	if (a == '#')
+		flag->sharp = 1;
+	if (a == ' ')
+		flag->space = 1;
+}
+
 size_t	flag_begin_chek(char *a, t_flag *flag)
 {
 	size_t i;
@@ -35,16 +49,7 @@ size_t	flag_begin_chek(char *a, t_flag *flag)
 	while (a[i] == '0' || a[i] == '+' || a[i] == '-' || a[i] == ' ' ||
 	a[i] == '#')
 	{
-		if (a[i] == '0')
-			flag->null = 1;
-		if (a[i] == '+')
-			flag->plus = 1;
-		if (a[i] == '-')
-			flag->min = 1;
-		if (a[i] == '#')
-			flag->sharp = 1;
-		if (a[i] == ' ')
-			flag->space = 1;
+		flag_first(a[i], flag);
 		if ((temp = spaces(&a[i])))
 		{
 			flag->space = 1;

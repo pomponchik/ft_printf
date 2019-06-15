@@ -6,7 +6,7 @@
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 17:59:56 by kbethany          #+#    #+#             */
-/*   Updated: 2019/04/18 17:55:25 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/06/15 15:31:04 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 size_t	check_flags(char *str, t_flag *flag, va_list *arguments)
 {
-	size_t index;
+	size_t	index;
 
 	index = 0;
-	int i = 0;
 	while (str[index])
 	{
-		i++;
 		if (flag_end(str[index]))
 		{
 			flag->flag_5 = str[index];
@@ -39,6 +37,6 @@ size_t	check_flags(char *str, t_flag *flag, va_list *arguments)
 			return (index);
 	}
 	if (!only_1_flag(flag))
-				return (index);
+		return (index);
 	return (index);
 }

@@ -6,7 +6,7 @@
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 17:53:24 by kbethany          #+#    #+#             */
-/*   Updated: 2019/04/18 18:04:32 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/06/15 18:59:38 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 size_t	ok(char *str, t_flag *flag, va_list *arguments)
 {
 	size_t	num;
-	size_t temp;
+	size_t	temp;
 
 	num = 0;
-
 	while (!flag_end(str[num]))
 	{
 		temp = 0;
@@ -39,13 +38,13 @@ size_t	ok(char *str, t_flag *flag, va_list *arguments)
 				temp++;
 			}
 		}
-		else 	if (second_flag(&str[num + temp], flag) && !flag->dot)
+		else if (second_flag(&str[num + temp], flag) && !flag->dot)
 			temp += ft_math_numlen_long((long int)flag->before_dot);
 		else if (str[num + temp] == '*' && !flag->dot)
-			{
-				flag->before_dot = va_arg(*arguments, int);
-				temp++;
-			}
+		{
+			flag->before_dot = va_arg(*arguments, int);
+			temp++;
+		}
 		temp += size_flag(&str[num + temp], flag, temp);
 		num += temp;
 	}

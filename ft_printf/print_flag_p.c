@@ -6,7 +6,7 @@
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 15:18:57 by kbethany          #+#    #+#             */
-/*   Updated: 2019/04/18 18:15:12 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/06/15 18:04:48 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,5 @@ size_t	print_flag_p(t_flag *flag, va_list *arguments)
 	flag->str = ft_strjoin_free_2("0x", flag->str);
 	temp = ft_strlen(flag->str);
 	flag->str = ft_str_lower(flag->str);
-	// flag->sharp = 1;
-	// flag->flag_5 = 'x';
 	return (printer(flag, 1));
 }
