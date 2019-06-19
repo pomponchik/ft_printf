@@ -6,7 +6,7 @@
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 15:09:59 by kbethany          #+#    #+#             */
-/*   Updated: 2019/06/15 16:13:17 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/06/19 20:14:54 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_abs(int nb)
 	return (nb);
 }
 
-char	*ft_itoa_base_long(t_flag *flag, uintmax_t value, int base)
+char	*ft_itoa_base_long(uintmax_t value, int base)
 {
 	char		*str;
 	int			size;

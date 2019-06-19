@@ -6,7 +6,7 @@
 /*   By: ahalmon- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 22:23:51 by ahalmon-          #+#    #+#             */
-/*   Updated: 2019/06/15 17:19:12 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/06/19 20:15:16 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	fixer_str(t_flag *flag, size_t *len);
 size_t	flag_begin_chek(char *a, t_flag *flag);
 char	*ft_strfilnew(size_t size, char a);
 int		first_flag(long long int i, t_flag *flag, int f);
-char	*ft_itoa_base_long(t_flag *flag, uintmax_t value, int base);
+char	*ft_itoa_base_long(uintmax_t value, int base);
 size_t	print_flag_d(t_flag *flag, va_list *arguments);
 size_t	print_flag_p(t_flag *flag, va_list *arguments);
 size_t	print_flag_x(t_flag *flag, va_list *arguments);

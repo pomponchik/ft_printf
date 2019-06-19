@@ -6,13 +6,13 @@
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:56:32 by kbethany          #+#    #+#             */
-/*   Updated: 2019/06/15 19:38:18 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/06/19 20:00:57 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-voiв	charer(t_flag *flag, size_t *len)
+void	charer(t_flag *flag, size_t *len)
 {
 	char	*temp;
 	char	*str;

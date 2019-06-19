@@ -6,7 +6,7 @@
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 16:30:02 by kbethany          #+#    #+#             */
-/*   Updated: 2019/04/18 18:13:46 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/06/19 20:18:24 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ size_t	print_flag_o(t_flag *flag, va_list *arguments)
 	else
 		i = (unsigned int)va_arg(*arguments, unsigned int);
 	i = (uintmax_t)i;
-	flag->str = ft_itoa_base_long(flag, i, 8);
+	flag->str = ft_itoa_base_long(i, 8);
 	return (printer(flag, i));
 }

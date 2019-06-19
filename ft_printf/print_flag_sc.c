@@ -21,7 +21,10 @@ size_t	print_flag_sc(t_flag *flag, va_list *arguments)
 	if (flag->flag_5 == 's' || flag->flag_5 == 'S')
 	{
 		if (!(flag->str = ft_strdup(va_arg(*arguments, char *))))
+		{
 			flag->str = ft_strdup("(null)");
+			flag->before_dot = 0;
+		}
 		return (printer(flag, 1));
 	}
 	else if (flag->flag_5 == 'c' || flag->flag_5 == 'C')

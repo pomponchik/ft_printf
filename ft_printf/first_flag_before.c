@@ -30,10 +30,10 @@ void	first_flag_before(long long int i, t_flag *flag)
 		flag->flag_5 == 'u' || flag->flag_5 == 'o' ||
 		flag->flag_5 == 'x' || flag->flag_5 == 'X'))
 		flag->str = ft_strdup("");
-	if (flag->flag_5 == 'o' && flag->sharp)
+	if (flag->sharp && !ft_strcmp(flag->str, "0"))
+			flag->sharp = 0;
+	if ((flag->flag_5 == 'o' || flag->flag_5 == 'O') && flag->sharp)
 		flag->str = ft_strjoin_free_2("0", flag->str);
-	if (flag->sharp && i < 10)
-		flag->sharp = 0;
 	else if (flag->sharp && (flag->flag_5 == 'x' || flag->flag_5 == 'X'))
 	{
 		if (flag->flag_5 == 'X')

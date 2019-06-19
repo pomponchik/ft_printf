@@ -6,7 +6,7 @@
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 16:28:50 by kbethany          #+#    #+#             */
-/*   Updated: 2019/06/15 19:14:11 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/06/19 20:20:21 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t	print_flag_x(t_flag *flag, va_list *arguments)
 		i = (unsigned char)va_arg(*arguments, unsigned int);
 	else
 		i = (unsigned int)va_arg(*arguments, unsigned int);
-	flag->str = ft_itoa_base_long(flag, i, 16);
+	flag->str = ft_itoa_base_long(i, 16);
 	if (flag->flag_5 == 'x')
 		flag->str = ft_str_lower(flag->str);
 	else
