@@ -56,7 +56,7 @@ int	main()
 // ft_printf("{%-15Z}\n", 123);
 // printf("{%-15Z}\n", 123);
 // //
-ft_printf("@moulitest: %#.x %#.0x", 0, 0);
+//ft_printf("@moulitest: %#.x %#.0x", 0, 0);
 //
 // //
 //
@@ -74,7 +74,7 @@ ft_printf("@moulitest: %#.x %#.0x", 0, 0);
 // printf("2%15.4d\n", 42);
 // ft_printf("1%15.4d\n", 424242);
 // printf("2%15.4d\n", 424242);
- //abft_printf("%15.4d\n", -42);
+ft_printf("%15.4d\n", -42);
 //printf("%15.4d\n", -42);
 // ft_printf("1%15.4d\n", -424242);
 // printf("2%15.4d\n", -424242);
