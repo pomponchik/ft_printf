@@ -27,7 +27,6 @@ void	flag_nuller(t_flag *flag)
 	flag->ll = 0;
 	flag->h = 0;
 	flag->hh = 0;
-	flag->L = 0;
 	flag->flag_5 = 0;
 	flag->before_flag = 0;
 	flag->after_flag = 0;

@@ -44,11 +44,6 @@ int	size_flag(char *a, t_flag *flag, size_t s)
 				flag->h++;
 			return (1);
 		}
-		else if (*a == 'L')
-		{
-			flag->L++;
-			return (1);
-		}
 	}
 	if (!s)
 		return (1);

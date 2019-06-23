@@ -37,7 +37,6 @@ typedef struct	s_flags
 	char		ll;
 	char		h;
 	char		hh;
-	char		L;
 	char		flag_5;
 	char		*str;
 	int			i;

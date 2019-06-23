@@ -16,15 +16,13 @@ void	first_flag_before(long long int i, t_flag *flag)
 {
 	if (flag->flag_5 == 'p' && flag->null)
 		flag->min = 1;
-	if (i == 0 && (flag->flag_5 == 'd' || flag->flag_5 == 'i' ||
-		flag->flag_5 == 'u' || flag->flag_5 == 'o' ||
-		flag->flag_5 == 'x' || flag->flag_5 == 'X'))
-		flag->null = 0;
+	 if (i == 0 && flag->dot)
+ 		flag->null = 0;
 	if (flag->plus && i >= 0 && !(flag->flag_5 == 's' || flag->flag_5 == 'o' ||
 		flag->flag_5 == 'O'))
 		flag->str = ft_strjoin_free_2("+", flag->str);
 	else if (flag->space && (flag->flag_5 == 'd' || flag->flag_5 == 'i') &&
-	(*(flag->str) != '+' || *(flag->str) != '-') && i > 0)
+	(*(flag->str) != '+' || *(flag->str) != '-') && i >= 0)
 		flag->str = ft_strjoin_free_2(" ", flag->str);
 	if (flag->sharp && !ft_strcmp(flag->str, "0") &&
 	!(flag->dot && flag->flag_5 == 'o'))

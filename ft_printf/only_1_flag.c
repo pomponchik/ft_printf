@@ -21,9 +21,6 @@ int	only_1_flag(t_flag *flag)
 		flag->null = 0;
 	if (flag->sharp && flag->min && flag->null)
 		flag->null = 0;
-	if (flag->l > 1 || flag->ll > 1 || flag->h > 1 ||
-	flag->hh > 1 || flag->L > 1)
-		return (0);
 	if (flag->null && (flag->flag_5 == 'p'))
 		return (0);
 	if (flag->plus && (flag->flag_5 == 's' || flag->flag_5 == 'p'))
@@ -40,8 +37,6 @@ int	only_1_flag(t_flag *flag)
 	if ((flag->hh || flag->h || flag->ll) &&
 	(flag->flag_5 == 'f' || flag->flag_5 == 's' ||
 	flag->flag_5 == 'c' || flag->flag_5 == 'p'))
-		return (0);
-	if (flag->L && !(flag->flag_5 == 'f'))
 		return (0);
 	if (flag->after_dot && (flag->flag_5 == 'c' || flag->flag_5 == 'p'))
 		return (0);

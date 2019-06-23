@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
-#include "head.h"
+#include "../head.h"
 
 int	main()
 {
@@ -37,53 +37,23 @@ int	main()
 	// ft_printf("%s\n", NULL);
 	//ft_printf("%   %\n");
 //
-// 16_conv_c.spec.c
-// //
-// printf("43_length_modif_hh.spec.c\n");
-// ft_printf("%hhO, %hhO\n", 0, USHRT_MAX);
-// printf("%hhO, %hhO\n", 0, USHRT_MAX);
-// //
-// // 50_min_width.spec.c
-//printf("50_min_width.spec.c\n");
-// ft_printf("ft%10R\n");
-// printf("pf%10R\n");
-// ft_printf("ft%10b\n");
-// printf("pf%10b\n");
-// //
-// // 52_min_width_flag_zero.spec.c
-// //
-// printf("53_min_width_non_valid_conv segfault\n");
-// ft_printf("{%-15Z}\n", 123);
-// printf("{%-15Z}\n", 123);
-// //
-//ft_printf("@moulitest: %#.x %#.0x", 0, 0);
-//
-// //
-//
-// // ft_printf("{%f}{%f}\n", 1444565444646.6465424242242, 1444565444646.6465424242242);
-// // printf("{%f}{%F}\n", 1444565444646.6465424242242, 1444565444646.6465424242242);
-// //
-//
-// //
-// printf("69_flag_mix.spec.c\n");
-// ft_printf("{%+03d}\n", 0);
-// ft_printf("{% 03d}\n", 0);
-// //
-// printf("70_precision_for_diu.spec.c\n");
-// ft_printf("1%15.4d\n", 42);
-// printf("2%15.4d\n", 42);
-// ft_printf("1%15.4d\n", 424242);
-// printf("2%15.4d\n", 424242);
-ft_printf("%15.4d\n", -42);
-//printf("%15.4d\n", -42);
-// ft_printf("1%15.4d\n", -424242);
-// printf("2%15.4d\n", -424242);
-// ft_printf("1%.u, %.0u\n", 0, 0);
-// printf("2%.u, %.0u\n", 0, 0);
-// ft_printf("1%15.4u\n", 42);
-// printf("2%15.4u\n", 42);
-// ft_printf("1%15.4u\n", 424242);
-// printf("2%15.4u\n", 424242);
+
+
+printf("70_precision_for_diu.spec.c\n");
+// ft_printf("ft1%15.4d\n", 42);
+// printf("pf1%15.4d\n", 42);
+ft_printf("ft2%15.4d\n", 424242);
+printf("pf2%15.4d\n", 424242);
+// ABft_printf("ft3%15.4d\n", -42);
+// printf("pf3%15.4d\n", -42);
+ft_printf("ft4%15.4d\n", -424242);
+printf("pf4%15.4d\n", -424242);
+ft_printf("ft5%.u, %.0u\n", 0, 0);
+printf("pf5%.u, %.0u\n", 0, 0);
+// ft_printf("ft6%15.4u\n", 42);
+// printf("pf6%15.4u\n", 42);
+ft_printf("ft7%15.4u\n", 424242);
+printf("pf7%15.4u\n", 424242);
 // //
 // printf("71_precision_for_oOxX.spec.c\n");
 // ft_printf("%15.4o\n", 42);
@@ -117,18 +87,12 @@ ft_printf("%15.4d\n", -42);
 // ft_printf("%4.s\n", "42");
 // printf("%15.4s\n", "42 is the answer");
 //
-// // 73_precision_for_cC.spec.c
-//
-// //
+
 // printf("74_precision_for_p.spec.c\n");
 // ft_printf("%.0p, %.p\n", 0, 0);
 // printf("%.0p, %.p\n", 0, 0);
 // ft_printf("%.5p\n", 0);
 // printf("%.5p\n", 0);
-// ft_printf("%9.2p\n", 1234);
-// printf("%9.2p\n", 1234);
-// ft_printf("%9.2p\n", 1234567);
-// printf("%9.2p\n", 1234567);
 // ft_printf("%2.9p\n", 1234);
 // printf("%2.9p\n", 1234);
 // ft_printf("%2.9p\n", 1234567);
@@ -137,23 +101,10 @@ ft_printf("%15.4d\n", -42);
 // printf("79_precision_mixed_with_flags\n");
 // ft_printf("%.p, %.0p\n", 0, 0);
 // printf("%.p, %.0p\n", 0, 0);
-// ft_printf("{%05.c}\n", 0);
-// printf("{%05.c}\n", 0);
-// ft_printf("{%05.s}\n", 0);
-// printf("{%05.s}\n", 0);
-// ft_printf("{%05.Z}\n", 0);
-// printf("{%05.Z}\n", 0);
 // ft_printf("{%#.5x}\n", 1);
 // printf("{%#.5x}\n", 1);
 //
-// printf("92_incomptbl_values_oOxX.spec\n");
-// ft_printf("% o|%+o\n", 42, 42);
-// printf("% o|%+o\n", 42, 42);
-// ft_printf("% x|%+x\n", 42, 42);
-// printf("% x|%+x\n", 42, 42);
-// ft_printf("% X|%+X\n", 42, 42);
-// printf("% X|%+X\n", 42, 42);
-//
+
 // // ft_printf_test(58756,0x7fffcb8f63c0) malloc: *** error for object 0x7fcc1bf04570: pointer being freed was not allocated
 // //*** set a breakpoint in malloc_error_break to debug
 //

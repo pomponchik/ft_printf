@@ -16,7 +16,7 @@ size_t	print_flag_f(t_flag *flag, va_list *arguments)
 {
 	long double	i;
 
-	if (flag->L)
+	if (flag->l)
 		i = va_arg(*arguments, long double);
 	else
 		i = va_arg(*arguments, double);
