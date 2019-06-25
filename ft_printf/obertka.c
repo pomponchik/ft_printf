@@ -68,7 +68,7 @@ void	fixer_free(t_flag *flag, int min, int null, int s)
 
 	if (min && null)
 	{
-//		ft_putnbr(6);
+	//	ft_putnbr(6);
 		flag->str = ft_str_fix_width_of_line_free(flag->str, '0', s, "alignment: right, crop: no");
 	}
 	else if (min && !(null))
@@ -78,20 +78,20 @@ void	fixer_free(t_flag *flag, int min, int null, int s)
 	}
 	else if (null && !(min))
 	{
-	//	ft_putnbr(8);
+//	ft_putnbr(8);
 		if ((flag->sharp && (flag->flag_5 == 'x' || flag->flag_5 == 'X')) ||
 			*(flag->str) == '+' || *(flag->str) == '-' || *(flag->str) == ' ')
 		{
 			if (*(flag->str) == '+' || *(flag->str) == '-' || *(flag->str) == ' ')
 			{
-			//		ft_putnbr(9);
+				//	ft_putnbr(9);
 				a = *(flag->str);
 				flag->str = ft_str_fix_width_of_line_free(flag->str + 1, '0', s - 1, "alignment: left, crop: no");
 				flag->str = ft_strjoin_free_1(ft_strdup_n(&a, 1), flag->str);
 			}
 			else
 			{
-		//			ft_putnbr(10);
+			//		ft_putnbr(10);
 				flag->str = ft_str_fix_width_of_line_free(flag->str + 2, '0', s - 2, "alignment: left, crop: no");
 				if (flag->flag_5 == 'X')
 					flag->str = ft_strjoin_free_2("0X", flag->str);
@@ -101,7 +101,7 @@ void	fixer_free(t_flag *flag, int min, int null, int s)
 		}
 		else
 		{
-		//		ft_putnbr(11);
+		//	ft_putnbr(11);
 			flag->str = ft_str_fix_width_of_line_free(flag->str, '0', s, "alignment: left, crop: no");
 		}
 	}
@@ -140,7 +140,7 @@ void	fixer(t_flag *flag, int min, int null, int s)
 			}
 			else
 			{
-	//			ft_putnbr(34);
+		//		ft_putnbr(34);
 				flag->str = ft_str_fix_width_of_line(flag->str + 2, '0', s - 2, "alignment: left, crop: no");
 				if (flag->flag_5 == 'X')
 					flag->str = ft_strjoin_free_2("0X", flag->str);
@@ -150,7 +150,7 @@ void	fixer(t_flag *flag, int min, int null, int s)
 		}
 		else
 		{
-//			ft_putnbr(35);
+		//	ft_putnbr(35);
 			flag->str = ft_str_fix_width_of_line(flag->str, '0', s, "alignment: left, crop: no");
 		}
 	}
@@ -197,17 +197,17 @@ int	fixer_num(t_flag *flag)
 		else
 		{
 	//		ft_putnbr(3);
-			fixer(flag, flag->min, flag->null, flag->after_dot);
+		fixer(flag, flag->min, flag->null, flag->after_dot);
 		}
 	}
 	if (c)
 	{
-//		ft_putnbr(4);
+		//ft_putnbr(4);
 		fixer_free(flag, flag->min, flag->null, flag->before_dot);
 	}
 	else
 	{
-//		ft_putnbr(5);
+		//ft_putnbr(5);
 		fixer(flag, flag->min, flag->null, flag->before_dot);
 	}
 	return (0);

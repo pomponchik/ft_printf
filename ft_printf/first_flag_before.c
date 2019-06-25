@@ -14,6 +14,8 @@
 
 void	first_flag_before(long long int i, t_flag *flag)
 {
+	if (flag->dot && flag->after_dot == 0 && flag->flag_5 == 's')
+			flag->str = ft_strdup_free("");
 	if (flag->flag_5 == 'p' && flag->null)
 		flag->min = 1;
 	 if (i == 0 && flag->dot)
@@ -30,7 +32,7 @@ void	first_flag_before(long long int i, t_flag *flag)
 	if (flag->dot && i == 0 && (flag->flag_5 == 'd' || flag->flag_5 == 'i' ||
 		flag->flag_5 == 'u' || flag->flag_5 == 'o' ||
 		flag->flag_5 == 'x' || flag->flag_5 == 'X'))
-		flag->str = ft_strdup("");
+		flag->str = ft_strdup_free("");
 	if ((flag->flag_5 == 'o' || flag->flag_5 == 'O') && flag->sharp)
 		flag->str = ft_strjoin_free_2("0", flag->str);
 	else if (flag->sharp && (flag->flag_5 == 'x' || flag->flag_5 == 'X'))

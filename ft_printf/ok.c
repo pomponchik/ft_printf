@@ -12,37 +12,75 @@
 
 #include "head.h"
 
+// size_t	ok(char *str, t_flag *flag, va_list *arguments)
+// {
+// 	size_t	num;
+//
+// 	num = 0;
+// 	if (flag_begin_chek(&str[num], flag))
+// 		num += flag_begin_chek(&str[num], flag);
+// 	if (second_flag(&str[num], flag) && !flag->dot)
+//  		num += ft_math_numlen_long((long int)flag->before_dot);
+// 	else if (str[num] == '.')
+// 	{
+// 		flag->dot = 1;
+// 			num++;
+// 		if (str[num] > '0' && str[num] <= '9')
+// 		{
+// 			flag->after_dot = ft_atoi(str + num);
+// 			num += ft_math_numlen_long((long int)flag->after_dot);
+// 		}
+// 		if (str[num] == '*')
+// 		{
+// 			flag->after_dot = va_arg(*arguments, int);
+// 			num++;
+// 		}
+// 	}
+// 	else if (str[num] == '*' && !flag->dot)
+// 	{
+// 		flag->before_dot = va_arg(*arguments, int);
+// 		num++;
+// 	}
+// 	num += size_flag(&str[num], flag, num);
+// 	if (!flag_end(str[num]))
+// 		return (ok(&str[num], flag, arguments));
+// 	return (num);
+// }
 size_t	ok(char *str, t_flag *flag, va_list *arguments)
 {
 	size_t	num;
+	size_t temp;
 
 	num = 0;
-	if (flag_begin_chek(&str[num], flag))
-		num += flag_begin_chek(&str[num], flag);
-	if (second_flag(&str[num], flag) && !flag->dot)
- 		num += ft_math_numlen_long((long int)flag->before_dot);
-	else if (str[num] == '.')
+	while (!flag_end(str[num]))
 	{
-		flag->dot = 1;
-			num++;
-		if (str[num] > '0' && str[num] <= '9')
+		temp = 0;
+		if (flag_begin_chek(&str[num + temp], flag))
+			temp += flag_begin_chek(&str[num + temp], flag);
+		if (str[num + temp] == '.')
 		{
-			flag->after_dot = ft_atoi(str + num);
-			num += ft_math_numlen_long((long int)flag->after_dot);
+			flag->dot = 1;
+			temp++;
+			if (str[num + temp] > '0' && str[num + temp] <= '9')
+			{
+				flag->after_dot = ft_atoi(str + num + temp);
+				temp += ft_math_numlen_long((long int)flag->after_dot);
+			}
+			if (str[num + temp] == '*')
+			{
+				flag->after_dot = va_arg(*arguments, int);
+				temp++;
+			}
 		}
-		if (str[num] == '*')
-		{
-			flag->after_dot = va_arg(*arguments, int);
-			num++;
-		}
+		else 	if (!flag->dot && second_flag(&str[num + temp], flag))
+			temp += ft_math_numlen_long((long int)flag->before_dot);
+		else if (str[num + temp] == '*' && !flag->dot)
+			{
+				flag->before_dot = va_arg(*arguments, int);
+				temp++;
+			}
+		temp += size_flag(&str[num + temp], flag, temp);
+		num += temp;
 	}
-	else if (str[num] == '*' && !flag->dot)
-	{
-		flag->before_dot = va_arg(*arguments, int);
-		num++;
-	}
-	num += size_flag(&str[num], flag, num);
-	if (!flag_end(str[num]))
-		return (ok(&str[num], flag, arguments));
 	return (num);
 }

@@ -14,10 +14,12 @@
 
 int	second_flag(char *a, t_flag *flag)
 {
-	if (*a > '0' && *a <= '9')
+	if (ft_isdigit(*a))
 	{
 		flag->before_flag = 1;
 		flag->before_dot = ft_atoi(a);
+		// ft_putnbr((int)ft_math_numlen_long((long int)flag->before_dot));
+		// ft_putchar('\n');
 		return (ft_math_numlen_long((long int)flag->before_dot));
 	}
 	return (0);

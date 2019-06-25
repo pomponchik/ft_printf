@@ -39,60 +39,14 @@ int	main()
 //
 
 
-printf("70_precision_for_diu.spec.c\n");
-// ft_printf("ft1%15.4d\n", 42);
-// printf("pf1%15.4d\n", 42);
-ft_printf("ft2%15.4d\n", 424242);
-printf("pf2%15.4d\n", 424242);
-// ABft_printf("ft3%15.4d\n", -42);
-// printf("pf3%15.4d\n", -42);
-ft_printf("ft4%15.4d\n", -424242);
-printf("pf4%15.4d\n", -424242);
-ft_printf("ft5%.u, %.0u\n", 0, 0);
-printf("pf5%.u, %.0u\n", 0, 0);
-// ft_printf("ft6%15.4u\n", 42);
-// printf("pf6%15.4u\n", 42);
-ft_printf("ft7%15.4u\n", 424242);
-printf("pf7%15.4u\n", 424242);
-// //
-// printf("71_precision_for_oOxX.spec.c\n");
-// ft_printf("%15.4o\n", 42);
-// printf("%15.4o\n", 42);
-// ft_printf("%15.4o\n", 424242);
-// printf("%15.4o\n", 424242);
-// ft_printf("%.4O\n", 42);
-// printf("%.4O\n", 42);
-// ft_printf("%15.4O\n", 42);
-// printf("%15.4O\n", 42);
-// ft_printf("%4.15O\n", 42);
-// printf("%4.15O\n", 42);
-// ft_printf("%.o, %.0O\n", 0, 0);
-// printf("%.o, %.0O\n", 0, 0);
-// ft_printf("%15.4x\n", 42);
-// printf("%15.4x\n", 42);
-// ft_printf("%15.4x\n", 424242);
-// printf("%15.4x\n", 424242);
-// ft_printf("%15.4X\n", 42);
-// printf("%15.4X\n", 42);
-// ft_printf("%15.4X\n", 424242);
-// printf("%15.4X\n", 424242);
-//
-// printf("72_precision_for_sS.spec.c\n");
-// ft_printf("%15.4s/n", "42");
-// printf("%15.4s/n", "42");
-// ft_printf("%15.4s\n", "I am 42");
-// printf("%15.4s\n", "I am 42");
-// ft_printf("%15.4s\n", "42 is the answer");
-// printf("%15.4s\n", "42 is the answer");
-// ft_printf("%4.s\n", "42");
-// printf("%15.4s\n", "42 is the answer");
 //
 
-// printf("74_precision_for_p.spec.c\n");
-// ft_printf("%.0p, %.p\n", 0, 0);
-// printf("%.0p, %.p\n", 0, 0);
-// ft_printf("%.5p\n", 0);
-// printf("%.5p\n", 0);
+
+
+ft_printf("%.0p, %.p\n", 0, 0);
+//printf("pf%.0p, %.p\n", 0, 0);
+// ft_printf("ft%.5p\n", 0);
+// printf("pf%.5p\n", 0);
 // ft_printf("%2.9p\n", 1234);
 // printf("%2.9p\n", 1234);
 // ft_printf("%2.9p\n", 1234567);
@@ -100,10 +54,10 @@ printf("pf7%15.4u\n", 424242);
 //
 // printf("79_precision_mixed_with_flags\n");
 // ft_printf("%.p, %.0p\n", 0, 0);
-// printf("%.p, %.0p\n", 0, 0);
+// printf("pf%.p, %.0p\n", 0, 0);
 // ft_printf("{%#.5x}\n", 1);
 // printf("{%#.5x}\n", 1);
-//
+
 
 // // ft_printf_test(58756,0x7fffcb8f63c0) malloc: *** error for object 0x7fcc1bf04570: pointer being freed was not allocated
 // //*** set a breakpoint in malloc_error_break to debug
