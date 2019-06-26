@@ -45,7 +45,7 @@ typedef struct	s_flags
 
 typedef union u_double
 {
-	double		d;
+	long double		d;
 	struct
 	{
 		unsigned long int	mantisa : 64;

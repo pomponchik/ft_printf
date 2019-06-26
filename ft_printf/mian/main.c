@@ -13,7 +13,7 @@
 #include "../head.h"
 
 
-char *res(double num)
+char *res(long double num)
 {
 	t_double fl;
 
