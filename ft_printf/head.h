@@ -43,6 +43,17 @@ typedef struct	s_flags
 	char		ind_c;
 }				t_flag;
 
+typedef union u_double
+{
+	double		d;
+	struct
+	{
+		unsigned long int	mantisa : 64;
+		unsigned int	exponent : 15;
+		unsigned int	sign : 1;
+	}			s_parts;
+}				t_double;
+
 int		flag_end(char str);
 size_t	printer(t_flag *flag, uintmax_t i);
 size_t	out_str(char *str);

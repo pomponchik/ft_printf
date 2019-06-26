@@ -12,41 +12,19 @@
 #include <stdio.h>
 #include "../head.h"
 
+
+char *res(double num)
+{
+	t_double fl;
+
+	fl.d = num;
+	fl.s_parts.exponent -= 16382;
+	printf("%u\n", fl.s_parts.exponent);
+	return (ft_strdup("1"));
+}
+
 int	main()
 {
-	ft_printf("ft%*d\n", 5, 42);
-	printf("pf%*d\n", 5, 42);
-	ft_printf("\nft{%*d}\n", -5, 42);
-	printf("pf{%*d}\n", -5, 42);
-	ft_printf("\nft{%*d}\n", 0, 42);
-	printf("pf{%*d}\n", 0, 42);
-	ft_printf("\nft{%*c}\n", -15, 0);
-	printf("pf{%*c}\n", -15, 0);
-	ft_printf("\nft{%.*d}\n", 5, 42);
-	printf("pf{%.*d}\n", 5, 42);
-
-	ft_printf("\nft{%.*d}\n", -5, 42);
-	printf("pf{%.*d}\n", -5, 42);
-
-	ft_printf("\nft{%.*d}\n", 0, 42);
-	printf("pf{%.*d}\n", 0, 42);
-	// // ft_printf("\nft{%.*s}\n", 5, "42");
-	// // printf("pf{%.*s}\n", 5, "42");
-	// // ft_printf("ft{%.*s}\n", -5, "42");
-	// // printf("pf{%.*s}\n", -5, "42");
-	// ft_printf("\nft{%.*s}\n", 0, "42");
-	// printf("pf{%.*s}\n", 0, "42");
-	// ft_printf("\nft{%*s}\n", 5, 0);
-	// printf("pf{%*s}\n", 5, 0);
-	// ft_printf("ft{%*p}\n", 10, 0);
-	// printf("pf{%*p}\n", 10, 0);
-
-
-	ft_printf("\nft%*.*d\n", 0, 3, 0);
-	printf("pf%*.*d\n", 0, 3, 0);
-
-
-	ft_printf("\nft{%05.*d}\n", -15, 42);
-	printf("pf{%05.*d}\n", -15, 42);
+	res(152.5);
 	return (0);
 }
