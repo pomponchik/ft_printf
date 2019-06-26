@@ -21,7 +21,7 @@ size_t	post_persent(char *str, va_list *arguments, t_list **lst)
 	type_len = 0;
 	flag_nuller(&flag);
 	flag.lst = *lst;
-	if (!(type_len += check_flags(str, &flag, arguments)))
+	if (!(type_len += check_flags(str, &flag)))
 	{
 		return (1);
 	}

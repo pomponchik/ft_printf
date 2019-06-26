@@ -46,7 +46,8 @@
 // 		return (ok(&str[num], flag, arguments));
 // 	return (num);
 // }
-size_t	ok(char *str, t_flag *flag, va_list *arguments)
+
+size_t	ok(char *str, t_flag *flag)
 {
 	size_t	num;
 	size_t temp;
@@ -66,19 +67,9 @@ size_t	ok(char *str, t_flag *flag, va_list *arguments)
 				flag->after_dot = ft_atoi(str + num + temp);
 				temp += ft_math_numlen_long((long int)flag->after_dot);
 			}
-			if (str[num + temp] == '*')
-			{
-				flag->after_dot = va_arg(*arguments, int);
-				temp++;
-			}
 		}
 		else 	if (!flag->dot && second_flag(&str[num + temp], flag))
 			temp += ft_math_numlen_long((long int)flag->before_dot);
-		else if (str[num + temp] == '*' && !flag->dot)
-			{
-				flag->before_dot = va_arg(*arguments, int);
-				temp++;
-			}
 		temp += size_flag(&str[num + temp], flag, temp);
 		num += temp;
 	}

@@ -35,6 +35,22 @@ void	charer(t_flag *flag, size_t *len)
 		*len = 1;
 }
 
+void fixer_p(t_flag *flag)
+{
+	if (flag->before_dot > flag->after_dot && !flag->null)
+	{
+		if (flag->min)
+			flag->str = ft_str_fix_width_of_line(flag->str, ' ', flag->before_dot, "alignment: right, crop: no");
+		else
+			flag->str = ft_str_fix_width_of_line(flag->str, ' ', flag->before_dot, "alignment: left, crop: no");
+	}
+	else
+	{
+		flag->str = ft_str_fix_width_of_line(flag->str + 2, '0', flag->after_dot, "alignment: left, crop: no");
+		flag->str = ft_strjoin_free_2("0x", flag->str);
+	}
+}
+
 void	fixer_str(t_flag *flag, size_t *l)
 {
 	int	len;
@@ -189,7 +205,8 @@ int	fixer_num(t_flag *flag)
 		{
 			if (*(flag->str) == '-' || *(flag->str) == '+' || *(flag->str) == ' ')
 				flag->after_dot++;
-		//	ft_putnbr(2);
+			if ((flag->flag_5 == 'x' || flag->flag_5 == 'X') && len == 3)
+					flag->after_dot += 2;
 			fixer(flag, 0, 1, flag->after_dot);
 			flag->null = 0;
 			c++;

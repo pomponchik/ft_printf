@@ -12,7 +12,7 @@
 
 #include "head.h"
 
-size_t	check_flags(char *str, t_flag *flag, va_list *arguments)
+size_t	check_flags(char *str, t_flag *flag)
 {
 	size_t	index;
 
@@ -31,8 +31,8 @@ size_t	check_flags(char *str, t_flag *flag, va_list *arguments)
 			}
 			break ;
 		}
-		else if (ok(str + index, flag, arguments))
-			index += ok(str + index, flag, arguments);
+		else if (ok(str + index, flag))
+			index += ok(str + index, flag);
 		else
 			return (index);
 	}

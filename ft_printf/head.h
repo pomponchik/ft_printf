@@ -49,6 +49,7 @@ size_t	out_str(char *str);
 void	first_flag_before(long long int i, t_flag *flag);
 int		size_flag(char *a, t_flag *flag, size_t s);
 int		second_flag(char *a, t_flag *flag);
+void 	fixer_p(t_flag *flag);
 void	fixer_free(t_flag *flag, int min, int null, int s);
 void	fixer(t_flag *flag, int min, int null, int s);
 int		fixer_num(t_flag *flag);
@@ -70,11 +71,11 @@ size_t	post_persent(char *str, va_list *arguments, t_list **lst);
 size_t	just_to_print_len(char *str, int *persent_indicate, t_list **lst);
 size_t	out_from_flag(t_flag *flag, va_list *arguments);
 
-size_t	check_flags(char *str, t_flag *flag, va_list *arguments);
+size_t	check_flags(char *str, t_flag *flag);
 int		links_flag_prove(t_flag *flag);
 int		is_it_flag(char *str1);
 int		only_1_flag(t_flag *flag);
-size_t	ok(char *str, t_flag *flag, va_list *arguments);
+size_t	ok(char *str, t_flag *flag);
 void	flag_nuller(t_flag *flag);
 
 #endif

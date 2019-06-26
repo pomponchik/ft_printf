@@ -21,6 +21,8 @@ size_t	printer(t_flag *flag, uintmax_t i)
 	len = 0;
 	if (flag->flag_5 != '%')
 		first_flag_before(i, flag);
+	if (flag->flag_5 == 'p')
+		fixer_p(flag);
 	if (flag->flag_5 == 's' || flag->flag_5 == 'c')
 		fixer_str(flag, &len);
 	else
