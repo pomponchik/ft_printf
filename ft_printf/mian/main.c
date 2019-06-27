@@ -206,17 +206,14 @@ char *ft_round(char *num, size_t accuracy)
 	int ind;
 
 	if (ft_strlen(ft_strchr(num, '.') + 1) < accuracy)
-		num = ft_strjoin_fr_both(num, ft_strnew_filler(accuracy - ft_strlen(ft_strchr(num, '.') + 1), '0'));
+		num = ft_strjoin_fr_both(num, ft_strnew_filler(accuracy - \
+			ft_strlen(ft_strchr(num, '.') + 1), '0'));
 	temp = ft_strchr(num, '.') + 1;
 	ind = 0;
 	one_num_from_multi(temp + accuracy - 1, &i);
 	temp[accuracy] = '\0';
 	if (i)
-	{
-		ft_putstr("hh\n");
 		ind = out_round(temp, accuracy);
-	}
-
 	if (ind)
 	{
 		size = ft_strchr(num, '.') - num;
