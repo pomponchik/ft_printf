@@ -153,38 +153,49 @@ char *float_part(unsigned long int mantisa, unsigned int num_bits)
 	return (itoa_alignment(lst));
 }
 
-int				one_num_from_multi(char *num, size_t *ind_in)
+char				one_num_from_multi(char *num, size_t *ind_in)
 {
 	size_t				ind_out;
 
 	if (!*(num + 1))
 	{
-		printf("if 1, if 1, sign: %c\n", *num);
 		*ind_in = 0;
-		return ((int)(num - '0'));
+		return (*num);
 	}
-	if (one_num_from_multi(num + 1, &ind_out) + ind_out >= 5)
+	if (one_num_from_multi(ft_jump(num, 1), &ind_out) + ind_out >= '5')
 	{
-		*ind_in = 1;
-		printf("if 2, sign: %c, ind: %lu\n", *num, ind_out);
-		return (0);
-		// if (*num - '0' + ind_out <= 9)
-		// {
-		// 	printf("if 2, if 1, sign: %c, ind: %lu\n", *num, ind_out);
-		// 	printf("%lu\n", *num - '0' + ind_out);
-		// 	*ind_in = 0;
-		// 	return (0);
-		// }
-		// else
-		// {
-		// 	printf("if 2, if 2, sign: %c\n", *num);
-		// 	*ind_in = 1;
-		// 	return ((*num - '0' + ind_out) - 10);
-		// }
+		if (*num < '9')
+		{
+			*num += 1;
+			*ind_in = 0;
+			return (*num);
+		}
+		else
+			*ind_in = 1;
 	}
-	*ind_in = 0;
-	printf("return, sign: %c\n", *num);
-	return ((int)*num - '0' + ind_out);
+	return (*num);
+}
+
+int out_round(char *num, size_t accuracy)
+{
+	int ind;
+
+	ind = 1;
+	while (accuracy - 1)
+	{
+		if (num[accuracy - 1] == '9')
+			num[accuracy - 1] = '0';
+		else
+		{
+			num[accuracy - 1]++;
+			ind = 0;
+			break ;
+		}
+		accuracy--;
+	}
+	if (ind)
+		return (1);
+	return (0);
 }
 
 char *ft_round(char *num, size_t accuracy)
@@ -192,29 +203,27 @@ char *ft_round(char *num, size_t accuracy)
 	char *temp;
 	size_t i;
 	size_t size;
+	int ind;
 
+	if (ft_strlen(ft_strchr(num, '.') + 1) < accuracy)
+		num = ft_strjoin_fr_both(num, ft_strnew_filler(accuracy - ft_strlen(ft_strchr(num, '.') + 1), '0'));
 	temp = ft_strchr(num, '.') + 1;
-	ft_putstr(temp);
-	ft_putstr("\n");
-	temp[accuracy - 1] = (char)one_num_from_multi(num + accuracy - 1, &i) + i + '0';
+	ind = 0;
+	one_num_from_multi(temp + accuracy - 1, &i);
 	temp[accuracy] = '\0';
 	if (i)
 	{
-		printf("jj\n");
-		while (accuracy)
-		{
-			if (temp[accuracy - 1] - '0' + i > 9)
-				temp[accuracy - 1] = '0';
-			else
-			{
-				temp[accuracy - 1] = temp[accuracy - 1] + 1;
-				i = 0;
-				break ;
-			}
-			accuracy--;
-		}
-		if (i)
-			return (ft_strdup_n_free(num, ft_strlen(num) - (temp - num)));
+		ft_putstr("hh\n");
+		ind = out_round(temp, accuracy);
+	}
+
+	if (ind)
+	{
+		size = ft_strchr(num, '.') - num;
+		num = ft_math_longar_str_add_free_1(ft_strdup_n_free(num, size), "1");
+		num = ft_strjoin_free_1(ft_math_longar_str_add_free_1(num, "1"), ".");
+		num = ft_strjoin_fr_both(num, ft_strnew_filler(accuracy, '0'));
+		return (num);
 	}
 	return (ft_strdup_free(num));
 }
@@ -226,22 +235,31 @@ char *ft_itoa_specific(long double num, size_t accuracy)
 
 	fl.d = num;
 	fl.s_parts.exponent -= 16382;
-	if (!(result = ft_strjoin_fr_both(integer_part(fl.s_parts.mantisa, \
-		fl.s_parts.exponent), float_part(fl.s_parts.mantisa, \
-			fl.s_parts.exponent))))
-		return (NULL);
+	if (fl.s_parts.exponent < 64)
+	{
+		if (!(result = ft_strjoin_fr_both(integer_part(fl.s_parts.mantisa, \
+			fl.s_parts.exponent), float_part(fl.s_parts.mantisa, \
+				fl.s_parts.exponent))))
+			return (NULL);
+	}
+	else
+	{
+		if (!(result = ft_strjoin_free_1(integer_part(fl.s_parts.mantisa, \
+			fl.s_parts.exponent), ".")))
+			return (NULL);
+		if (!(result = ft_strjoin_fr_both(result, ft_strnew_filler(accuracy, '0'))))
+			return (NULL);
+	}
+	result = ft_round(result, accuracy);
 	if (fl.s_parts.sign)
 		result = ft_strjoin_free_2("-", result);
-	result = ft_round(result, accuracy);
 	return (result);
 }
 
 int	main()
 {
-	//printf("%s\n", res(1.875 ));
-	printf("%s\n", ft_itoa_specific(1.65, 6));
-	//printf("%s\n", ft_itoa_long_double_old(1.65, 6));
-
-	printf("%f\n", 1.66);
+	long double r = 576547654765.8768765876576547654765;
+	printf("%s\n", ft_itoa_specific(r, 20));
+	printf("%Lf\n", r);
 	return (0);
 }
