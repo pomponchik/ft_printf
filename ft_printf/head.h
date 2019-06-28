@@ -88,5 +88,6 @@ int		is_it_flag(char *str1);
 int		only_1_flag(t_flag *flag);
 size_t	ok(char *str, t_flag *flag);
 void	flag_nuller(t_flag *flag);
+char *ft_itoa_specific(long double num, size_t accuracy);
 
 #endif

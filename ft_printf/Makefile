@@ -38,6 +38,7 @@ SRC =  check_flags.c \
 		second_flag.c \
 		size_flag.c \
 		printer.c \
+		ft_itoa_specific.c \
 
 OBJ = $(SRC:.c=.o)
 

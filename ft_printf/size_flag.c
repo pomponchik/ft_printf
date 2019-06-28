@@ -22,6 +22,11 @@ int	size_flag(char *a, t_flag *flag, size_t s)
 			flag->ll++;
 			return (1);
 		}
+		if (*a == 'L')
+		{
+			flag->ll++;
+			return (1);
+		}
 		else if (*a == 'l')
 		{
 			if (*(a + 1) == 'l')
