@@ -168,7 +168,6 @@ char				one_num_from_multi(char *num, size_t *ind_in)
 		{
 			*num += 1;
 			*ind_in = 0;
-			return (*num);
 		}
 		else
 			*ind_in = 1;
@@ -176,9 +175,9 @@ char				one_num_from_multi(char *num, size_t *ind_in)
 	return (*num);
 }
 
-int out_round(char *num, size_t accuracy)
+size_t out_round(char *num, size_t accuracy)
 {
-	int ind;
+	size_t ind;
 
 	ind = 1;
 	while (accuracy - 1)
@@ -201,20 +200,18 @@ int out_round(char *num, size_t accuracy)
 char *ft_round(char *num, size_t accuracy)
 {
 	char *temp;
-	size_t i;
+	size_t indicate;
 	size_t size;
-	int ind;
 
 	if (ft_strlen(ft_strchr(num, '.') + 1) < accuracy)
 		num = ft_strjoin_fr_both(num, ft_strnew_filler(accuracy - \
 			ft_strlen(ft_strchr(num, '.') + 1), '0'));
 	temp = ft_strchr(num, '.') + 1;
-	ind = 0;
-	one_num_from_multi(temp + accuracy - 1, &i);
+	one_num_from_multi(temp + accuracy, &indicate);
 	temp[accuracy] = '\0';
-	if (i)
-		ind = out_round(temp, accuracy);
-	if (ind)
+	if (indicate)
+		indicate = out_round(temp, accuracy);
+	if (indicate)
 	{
 		size = ft_strchr(num, '.') - num;
 		num = ft_math_longar_str_add_free_1(ft_strdup_n_free(num, size), "1");
@@ -255,8 +252,9 @@ char *ft_itoa_specific(long double num, size_t accuracy)
 
 int	main()
 {
-	long double r = 576547654765.8768765876576547654765;
-	printf("%s\n", ft_itoa_specific(r, 20));
+	long double r = 576547654765.8768765876;
+	//long double r = 1.42;
+	printf("%s\n", ft_itoa_specific(r, 6));
 	printf("%Lf\n", r);
 	return (0);
 }
