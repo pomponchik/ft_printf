@@ -6,7 +6,7 @@
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 17:53:24 by kbethany          #+#    #+#             */
-/*   Updated: 2019/06/29 20:18:17 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/06/15 18:59:38 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	ok(char *str, t_flag *flag)
 {
 	size_t	num;
-	size_t	temp;
+	size_t temp;
 
 	num = 0;
 	while (!flag_end(str[num]))

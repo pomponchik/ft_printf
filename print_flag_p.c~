@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   second_flag.c                                      :+:      :+:    :+:   */
+/*   print_flag_p.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 17:24:08 by kbethany          #+#    #+#             */
-/*   Updated: 2019/04/18 18:18:51 by kbethany         ###   ########.fr       */
+/*   Created: 2019/04/03 15:18:57 by kbethany          #+#    #+#             */
+/*   Updated: 2019/06/19 20:19:49 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-int	second_flag(char *a, t_flag *flag)
+size_t	print_flag_p(t_flag *flag, va_list *arguments)
 {
-	if (ft_isdigit(*a))
+	uintmax_t	p;
+	char *t;
+
+	p = (unsigned long)va_arg(*arguments, unsigned long int);
+	flag->ll = 0;
+	flag->l = 1;
+	flag->str = ft_strdup("0x");
+	if (!(flag->dot && p == 0))
 	{
-		flag->before_flag = 1;
-		flag->before_dot = ft_atoi(a);
-		return (ft_math_numlen_long((long int)flag->before_dot));
+		t = ft_itoa_base_long(p, 16);
+		flag->str = ft_strjoin_fr_both(flag->str, t);
 	}
-	return (0);
+	ft_str_lower(flag->str);
+	return (printer(flag, 1));
 }

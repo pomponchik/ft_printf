@@ -35,22 +35,23 @@ void	charer(t_flag *flag, size_t *len)
 		*len = 1;
 }
 
-void fixer_p(t_flag *flag)
+void fixer_p(t_flag *f)
 {
-	char* temp;
-	if (flag->before_dot > flag->after_dot && !flag->null)
+	char	*temp;
+
+	if (f->before_dot > f->after_dot && !f->null)
 	{
-		if (flag->min)
-			flag->str = ft_str_fix_width_of_line_free(flag->str, ' ', flag->before_dot, "alignment: right, crop: no");
+		if (f->min)
+			f->str = ft_str_width_free(f->str, ' ', f->before_dot, "right, no");
 		else
-			flag->str = ft_str_fix_width_of_line_free(flag->str, ' ', flag->before_dot, "alignment: left, crop: no");
+			f->str = ft_str_width_free(f->str, ' ', f->before_dot, "left, no");
 	}
 	else
 	{
-		temp = flag->str;
-		flag->str = ft_str_fix_width_of_line(flag->str + 2, '0', flag->after_dot, "alignment: left, crop: no");
+		temp = f->str;
+		f->str = ft_str_width(f->str + 2, '0', f->after_dot, "left, no");
 		free(temp);
-		flag->str = ft_strjoin_free_2("0x", flag->str);
+		f->str = ft_strjoin_free_2("0x", f->str);
 	}
 }
 
@@ -67,17 +68,17 @@ void	fixer_str(t_flag *flag, size_t *l)
 	}
 	if (flag->after_dot && flag->after_dot < len)
 	{
-		flag->str = ft_str_fix_width_of_line(flag->str, ' ', flag->after_dot, "crop: end");
+		flag->str = ft_str_width(flag->str, ' ', flag->after_dot, "crop: end");
 		len = flag->after_dot;
 	}
 	if (len < flag->before_dot)
 	{
 		if (flag->min)
-			flag->str = ft_str_fix_width_of_line(flag->str, ' ', flag->before_dot, "alignment: right, crop: no");
+			flag->str = ft_str_width(flag->str, ' ', flag->before_dot, "right, no");
 		else if (flag->null)
-			flag->str = ft_str_fix_width_of_line(flag->str, '0', flag->before_dot, "alignment: left, crop: no");
+			flag->str = ft_str_width(flag->str, '0', flag->before_dot, "left, no");
 		else
-			flag->str = ft_str_fix_width_of_line(flag->str, ' ', flag->before_dot, "alignment: left, crop: no");
+			flag->str = ft_str_width(flag->str, ' ', flag->before_dot, "left, no");
 	}
 }
 
@@ -87,35 +88,26 @@ void	fixer_free(t_flag *flag, int min, int null, int s)
 	char *temp;
 
 	if (min && null)
-	{
-	//	ft_putnbr(6);
-		flag->str = ft_str_fix_width_of_line_free(flag->str, '0', s, "alignment: right, crop: no");
-	}
+		flag->str = ft_str_width_free(flag->str, '0', s, "right, no");
 	else if (min && !(null))
-	{
-	//	ft_putnbr(7);
-		flag->str = ft_str_fix_width_of_line_free(flag->str, ' ', s, "alignment: right, crop: no");
-	}
+		flag->str = ft_str_width_free(flag->str, ' ', s, "right, no");
 	else if (null && !(min))
 	{
-//	ft_putnbr(8);
 		if ((flag->sharp && (flag->flag_5 == 'x' || flag->flag_5 == 'X')) ||
 			*(flag->str) == '+' || *(flag->str) == '-' || *(flag->str) == ' ')
 		{
 			if (*(flag->str) == '+' || *(flag->str) == '-' || *(flag->str) == ' ')
 			{
-				//	ft_putnbr(9);
 				a = *(flag->str);
 				temp = flag->str;
-				flag->str = ft_str_fix_width_of_line_free(flag->str + 1, '0', s - 1, "alignment: left, crop: no");
+				flag->str = ft_str_width_free(flag->str + 1, '0', s - 1, "left, no");
 				free(temp);
 				flag->str = ft_strjoin_free_1(ft_strdup_n(&a, 1), flag->str);
 			}
 			else
 			{
-			//		ft_putnbr(10);
 				temp = flag->str;
-				flag->str = ft_str_fix_width_of_line_free(flag->str + 2, '0', s - 2, "alignment: left, crop: no");
+				flag->str = ft_str_width_free(flag->str + 2, '0', s - 2, "left, no");
 				free(temp);
 				if (flag->flag_5 == 'X')
 					flag->str = ft_strjoin_free_2("0X", flag->str);
@@ -124,16 +116,10 @@ void	fixer_free(t_flag *flag, int min, int null, int s)
 			}
 		}
 		else
-		{
-		//	ft_putnbr(11);
-			flag->str = ft_str_fix_width_of_line_free(flag->str, '0', s, "alignment: left, crop: no");
-		}
+			flag->str = ft_str_width_free(flag->str, '0', s, "left, no");
 	}
 	else
-	{
-	//		ft_putnbr(12);
-		flag->str = ft_str_fix_width_of_line_free(flag->str, ' ', s, "alignment: left, crop: no");
-	}
+		flag->str = ft_str_width_free(flag->str, ' ', s, "left, no");
 }
 
 void	fixer(t_flag *flag, int min, int null, int s)
@@ -142,9 +128,9 @@ void	fixer(t_flag *flag, int min, int null, int s)
 	char *temp;
 
 	if (min && null)
-		flag->str = ft_str_fix_width_of_line(flag->str, '0', s, "alignment: right, crop: no");
+		flag->str = ft_str_width(flag->str, '0', s, "right, no");
 	else if (min && !(null))
-		flag->str = ft_str_fix_width_of_line_free(flag->str, ' ', s, "alignment: right, crop: no");
+		flag->str = ft_str_width_free(flag->str, ' ', s, "right, no");
 	else if (null && !(min))
 	{
 		if ((flag->sharp && (flag->flag_5 == 'x' || flag->flag_5 == 'X')) ||
@@ -154,14 +140,14 @@ void	fixer(t_flag *flag, int min, int null, int s)
 			{
 				a = *(flag->str);
 				temp = flag->str;
-				flag->str = ft_str_fix_width_of_line(flag->str + 1, '0', s - 1, "alignment: left, crop: no");
+				flag->str = ft_str_width(flag->str + 1, '0', s - 1, "left, no");
 				free(temp);
 				flag->str = ft_strjoin_fr_both(ft_strdup_n(&a, 1), flag->str);
 			}
 			else
 			{
 				temp = flag->str;
-				flag->str = ft_str_fix_width_of_line(flag->str + 2, '0', s - 2, "alignment: left, crop: no");
+				flag->str = ft_str_width(flag->str + 2, '0', s - 2, "left, no");
 				free(temp);
 				if (flag->flag_5 == 'X')
 					flag->str = ft_strjoin_free_2("0X", flag->str);
@@ -170,10 +156,10 @@ void	fixer(t_flag *flag, int min, int null, int s)
 			}
 		}
 		else
-			flag->str = ft_str_fix_width_of_line_free(flag->str, '0', s, "alignment: left, crop: no");
+			flag->str = ft_str_width_free(flag->str, '0', s, "left, no");
 	}
 	else
-		flag->str = ft_str_fix_width_of_line_free(flag->str, ' ', s, "alignment: left, crop: no");
+		flag->str = ft_str_width_free(flag->str, ' ', s, "left, no");
 }
 
 int	fixer_num(t_flag *flag)
@@ -194,7 +180,7 @@ int	fixer_num(t_flag *flag)
 	}
 	if (len >= flag->after_dot)
 		flag->after_dot = 0;
-	if(flag->after_dot)
+	if (flag->after_dot)
 	{
 		if (flag->after_dot > flag->before_dot)
 			flag->before_dot = 0;

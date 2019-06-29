@@ -6,7 +6,7 @@
 /*   By: ahalmon- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 22:23:51 by ahalmon-          #+#    #+#             */
-/*   Updated: 2019/06/29 20:13:28 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/06/19 20:15:16 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,34 +43,24 @@ typedef struct	s_flags
 	char		ind_c;
 }				t_flag;
 
-typedef union				u_double
+typedef union u_double
 {
-	long double				d;
+	long double		d;
 	struct
 	{
 		unsigned long int	mantisa : 64;
-		unsigned int		exponent : 15;
-		unsigned int		sign : 1;
-	}						s_parts;
-}							t_double;
+		unsigned int	exponent : 15;
+		unsigned int	sign : 1;
+	}			s_parts;
+}				t_double;
 
-char	*ft_itoa_accuracy(t_double *fl);
-char	*integer_part(unsigned long int mantisa, unsigned int num_bits);
-char	*two_five(size_t two);
-char	*itoa_adder(t_list *lst);
-size_t	max_sizes(t_list *lst);
-char	*itoa_alignment(t_list *lst);
-char	*float_part(unsigned long int mantisa, unsigned int num_bits);
-char	one_num_from_multi(char *num, size_t *ind_in);
-size_t out_round(char *num, size_t accuracy);
-char	*ft_round(char *num, size_t accuracy);
 int		flag_end(char str);
 size_t	printer(t_flag *flag, uintmax_t i);
 size_t	out_str(char *str);
 void	first_flag_before(long long int i, t_flag *flag);
 int		size_flag(char *a, t_flag *flag, size_t s);
 int		second_flag(char *a, t_flag *flag);
-void	fixer_p(t_flag *flag);
+void 	fixer_p(t_flag *flag);
 void	fixer_free(t_flag *flag, int min, int null, int s);
 void	fixer(t_flag *flag, int min, int null, int s);
 int		fixer_num(t_flag *flag);
@@ -98,6 +88,6 @@ int		links_flag_prove(t_flag *flag);
 int		is_it_flag(char *str1);
 int		only_1_flag(t_flag *flag);
 void	flag_nuller(t_flag *flag);
-char	*ft_itoa_specific(long double num, size_t accuracy);
+char *ft_itoa_specific(long double num, size_t accuracy);
 
 #endif

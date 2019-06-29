@@ -6,26 +6,16 @@
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 15:18:57 by kbethany          #+#    #+#             */
-/*   Updated: 2019/06/19 20:19:49 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/06/29 20:32:23 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
-// static void	*ft_free_both_1(char **p1, char **p2)
-// {
-// 	free(*p1);
-// 	free(*p2);
-// 	*p1 = NULL;
-// 	*p2 = NULL;
-// 	return (NULL);
-// }
-//
-
 
 size_t	print_flag_p(t_flag *flag, va_list *arguments)
 {
 	uintmax_t	p;
-	char* t;
+	char		*t;
 
 	p = (unsigned long)va_arg(*arguments, unsigned long int);
 	flag->ll = 0;

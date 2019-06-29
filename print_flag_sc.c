@@ -12,6 +12,16 @@
 
 #include "head.h"
 
+static size_t	strings(t_flag *flag, va_list *arguments)
+{
+	if (!(flag->str = ft_strdup(va_arg(*arguments, char *))))
+	{
+		flag->str = ft_strdup("(null)");
+		flag->before_dot = 0;
+	}
+	return (printer(flag, 1));
+}
+
 size_t	print_flag_sc(t_flag *flag, va_list *arguments)
 {
 	int		i;
@@ -19,14 +29,7 @@ size_t	print_flag_sc(t_flag *flag, va_list *arguments)
 
 	i = 0;
 	if (flag->flag_5 == 's' || flag->flag_5 == 'S')
-	{
-		if (!(flag->str = ft_strdup(va_arg(*arguments, char *))))
-		{
-			flag->str = ft_strdup("(null)");
-			flag->before_dot = 0;
-		}
-		return (printer(flag, 1));
-	}
+		return (strings(flag, arguments));
 	else if (flag->flag_5 == 'c' || flag->flag_5 == 'C')
 	{
 		i = va_arg(*arguments, int);

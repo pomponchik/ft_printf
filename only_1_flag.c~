@@ -6,13 +6,13 @@
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 17:55:01 by kbethany          #+#    #+#             */
-/*   Updated: 2019/06/29 20:28:09 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/06/15 19:03:12 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-static int	posible(t_flag *flag)
+static int posible(t_flag *flag)
 {
 	if (flag->null && (flag->flag_5 == 'p'))
 		return (0);
@@ -34,7 +34,7 @@ static int	posible(t_flag *flag)
 	return (1);
 }
 
-int			only_1_flag(t_flag *flag)
+int	only_1_flag(t_flag *flag)
 {
 	if (flag->min && flag->null &&
 	(flag->flag_5 == 'd' || flag->flag_5 == 'i' ||
