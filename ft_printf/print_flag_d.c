@@ -26,6 +26,7 @@ size_t	print_flag_d(t_flag *flag, va_list *arguments)
 		i = (short)va_arg(*arguments, int);
 	else
 		i = (int)va_arg(*arguments, int);
+	free(flag->str);
 	flag->str = ft_itoa_long_long(i);
 	return (printer(flag, i));
 }

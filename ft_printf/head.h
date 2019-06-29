@@ -82,11 +82,11 @@ size_t	post_persent(char *str, va_list *arguments, t_list **lst);
 size_t	just_to_print_len(char *str, int *persent_indicate, t_list **lst);
 size_t	out_from_flag(t_flag *flag, va_list *arguments);
 
+size_t	ok(char *str, t_flag *flag);
 size_t	check_flags(char *str, t_flag *flag);
 int		links_flag_prove(t_flag *flag);
 int		is_it_flag(char *str1);
 int		only_1_flag(t_flag *flag);
-size_t	ok(char *str, t_flag *flag);
 void	flag_nuller(t_flag *flag);
 char *ft_itoa_specific(long double num, size_t accuracy);
 

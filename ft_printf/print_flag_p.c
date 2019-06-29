@@ -11,19 +11,31 @@
 /* ************************************************************************** */
 
 #include "head.h"
+// static void	*ft_free_both_1(char **p1, char **p2)
+// {
+// 	free(*p1);
+// 	free(*p2);
+// 	*p1 = NULL;
+// 	*p2 = NULL;
+// 	return (NULL);
+// }
+//
+
 
 size_t	print_flag_p(t_flag *flag, va_list *arguments)
 {
 	uintmax_t	p;
-	size_t		temp;
+	char* t;
 
 	p = (unsigned long)va_arg(*arguments, unsigned long int);
 	flag->ll = 0;
 	flag->l = 1;
 	flag->str = ft_strdup("0x");
 	if (!(flag->dot && p == 0))
-		flag->str = ft_strjoin_free_1(flag->str, ft_itoa_base_long(p, 16));
-	temp = ft_strlen(flag->str);
-	flag->str = ft_str_lower(flag->str);
+	{
+		t = ft_itoa_base_long(p, 16);
+		flag->str = ft_strjoin_fr_both(flag->str, t);
+	}
+	ft_str_lower(flag->str);
 	return (printer(flag, 1));
 }

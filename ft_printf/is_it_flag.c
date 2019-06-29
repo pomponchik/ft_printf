@@ -28,7 +28,7 @@ int	is_it_flag(char *str)
 	i = 0;
 	while (str[i] == ' ' || str[i] == '0' || str[i] == '-' || str[i] == '+' ||
 	str[i] == '#' || str[i] == 'l' || str[i] == 'L' || str[i] == 'h' ||
-	str[i] == '*' || str[i] == '.' || str[i] == 'j' || str[i] == 'z' ||
+	str[i] == '.' || str[i] == 'j' || str[i] == 'z' ||
 	(str[i] >= '0' && str[i] <= '9'))
 		i++;
 	if (flag_end(str[i]))
