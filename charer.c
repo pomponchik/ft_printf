@@ -6,7 +6,7 @@
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/30 16:51:10 by kbethany          #+#    #+#             */
-/*   Updated: 2019/06/30 16:52:12 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/06/30 17:38:06 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ void	charer(t_flag *flag, size_t *len)
 		*len = flag->before_dot;
 		temp = flag->str;
 		if (!flag->min)
-			flag->str = (char *)ft_memjoin(str, flag->before_dot - 1, flag->str, 1);
+			flag->str = (char *)ft_memjoin(str, flag->before_dot - 1,
+						flag->str, 1);
 		else
-			flag->str = (char *)ft_memjoin(flag->str, 1, str, flag->before_dot - 1);
+			flag->str = (char *)ft_memjoin(flag->str, 1, str,
+						flag->before_dot - 1);
 		ft_free_both(temp, str);
 	}
 	else

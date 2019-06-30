@@ -22,7 +22,6 @@ SRC =  check_flags.c \
 		ft_printf.c \
 		is_it_flag.c \
 		just_to_print_len.c \
-		obertka.c \
 		ok.c \
 		only_1_flag.c \
 		out_from_flag.c \
@@ -39,13 +38,14 @@ SRC =  check_flags.c \
 		size_flag.c \
 		printer.c \
 		ft_itoa_specific.c \
-		ft_itoa_specific_part_I.c \
-		ft_itoa_specific_part_II.c \
+		ft_itoa_specific_part_1.c \
+		ft_itoa_specific_part_2.c \
 		fixer_free.c \
 		fixer_num.c \
 		fixer_p.c \
 		fixer_str.c \
 		fixer.c \
+		charer.c \
 
 OBJ = $(SRC:.c=.o)
 

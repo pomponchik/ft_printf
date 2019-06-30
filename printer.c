@@ -30,9 +30,9 @@ size_t	printer(t_flag *flag, uintmax_t i)
 	if (!flag->ind_c)
 	{
 		temp = ft_strlen(flag->str);
-		ft_lstadd(&(flag->lst), ft_lstnew_without_copy(flag->str, temp));
+		ft_lstadd(&(flag->lst), ft_lstnew_no_copy(flag->str, temp));
 	}
 	else
-		ft_lstadd(&(flag->lst), ft_lstnew_without_copy(flag->str, len));
+		ft_lstadd(&(flag->lst), ft_lstnew_no_copy(flag->str, len));
 	return (temp);
 }

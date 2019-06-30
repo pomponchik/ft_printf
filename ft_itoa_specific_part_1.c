@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_specific_part_I.c                          :+:      :+:    :+:   */
+/*   ft_itoa_specific_part_1.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -31,7 +31,7 @@ char	*float_part(unsigned long int mantisa, unsigned int num_bits)
 	while (listing[index])
 	{
 		if (listing[index] == '1')
-			ft_lstadd(&lst, ft_lstnew_without_copy(two_five(kk), kk + 1));
+			ft_lstadd(&lst, ft_lstnew_no_copy(two_five(kk), kk + 1));
 		kk++;
 		index++;
 	}
