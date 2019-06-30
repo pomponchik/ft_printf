@@ -6,7 +6,7 @@
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 16:35:44 by kbethany          #+#    #+#             */
-/*   Updated: 2019/06/15 19:05:16 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/06/30 16:50:16 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static size_t	strings(t_flag *flag, va_list *arguments)
 	return (printer(flag, 1));
 }
 
-size_t	print_flag_sc(t_flag *flag, va_list *arguments)
+size_t			print_flag_sc(t_flag *flag, va_list *arguments)
 {
 	int		i;
 	char	temp;

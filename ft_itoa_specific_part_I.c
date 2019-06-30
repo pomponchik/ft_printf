@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_specific_part_I.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/06/30 16:40:47 by kbethany          #+#    #+#             */
+/*   Updated: 2019/06/30 16:45:43 by kbethany         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "head.h"
 
-char *float_part(unsigned long int mantisa, unsigned int num_bits)
+char	*float_part(unsigned long int mantisa, unsigned int num_bits)
 {
-	char *listing;
-	size_t index;
-	char *result;
-	t_list *lst;
-	int kk;
+	char	*listing;
+	size_t	index;
+	char	*result;
+	t_list	*lst;
+	int		kk;
 
 	if (!(listing = ft_bits_listing(&mantisa, sizeof(unsigned long int))))
 		return (NULL);
@@ -27,9 +39,9 @@ char *float_part(unsigned long int mantisa, unsigned int num_bits)
 	return (itoa_alignment(lst));
 }
 
-char				one_num_from_multi(char *num, size_t *ind_in)
+char	one_num_from_multi(char *num, size_t *ind_in)
 {
-	size_t				ind_out;
+	size_t	ind_out;
 
 	if (!*(num + 1))
 	{
@@ -49,9 +61,9 @@ char				one_num_from_multi(char *num, size_t *ind_in)
 	return (*num);
 }
 
-size_t out_round(char *num, size_t accuracy)
+size_t	out_round(char *num, size_t accuracy)
 {
-	size_t ind;
+	size_t	ind;
 
 	ind = 1;
 	while (accuracy)
@@ -71,11 +83,11 @@ size_t out_round(char *num, size_t accuracy)
 	return (0);
 }
 
-char *ft_round(char *num, size_t accuracy)
+char	*ft_round(char *num, size_t accuracy)
 {
-	char *temp;
-	size_t indicate;
-	size_t size;
+	char	*temp;
+	size_t	indicate;
+	size_t	size;
 
 	if (ft_strlen(ft_strchr(num, '.') + 1) < accuracy)
 		num = ft_strjoin_fr_both(num, ft_strnew_filler(accuracy - \
@@ -96,11 +108,11 @@ char *ft_round(char *num, size_t accuracy)
 	return (ft_strdup_free(num));
 }
 
-char *ft_itoa_accuracy(t_double *fl)
+char	*ft_itoa_accuracy(t_double *fl)
 {
-	char *result;
+	char	*result;
 
-	result = integer_part(fl->s_parts->mantisa, fl->s_parts->exponent);
+	result = integer_part(fl->s_parts.mantisa, fl->s_parts.exponent);
 	*((char *)(ft_strchr(result, '.'))) = '\0';
 	return (result);
 }

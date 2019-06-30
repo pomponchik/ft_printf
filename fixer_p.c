@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_flag_p.c                                     :+:      :+:    :+:   */
+/*   fixer_p.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 15:18:57 by kbethany          #+#    #+#             */
-/*   Updated: 2019/06/19 20:19:49 by kbethany         ###   ########.fr       */
+/*   Created: 2019/06/30 16:52:58 by kbethany          #+#    #+#             */
+/*   Updated: 2019/06/30 16:53:59 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-size_t	print_flag_p(t_flag *flag, va_list *arguments)
+void	fixer_p(t_flag *f)
 {
-	uintmax_t	p;
-	char *t;
+	char	*temp;
 
-	p = (unsigned long)va_arg(*arguments, unsigned long int);
-	flag->ll = 0;
-	flag->l = 1;
-	flag->str = ft_strdup("0x");
-	if (!(flag->dot && p == 0))
+	if (f->before_dot > f->after_dot && !f->null)
 	{
-		t = ft_itoa_base_long(p, 16);
-		flag->str = ft_strjoin_fr_both(flag->str, t);
+		if (f->min)
+			f->str = ft_str_width_free(f->str, ' ', f->before_dot, "right, no");
+		else
+			f->str = ft_str_width_free(f->str, ' ', f->before_dot, "left, no");
 	}
-	ft_str_lower(flag->str);
-	return (printer(flag, 1));
+	else
+	{
+		temp = f->str;
+		f->str = ft_str_width(f->str + 2, '0', f->after_dot, "left, no");
+		free(temp);
+		f->str = ft_strjoin_free_2("0x", f->str);
+	}
 }

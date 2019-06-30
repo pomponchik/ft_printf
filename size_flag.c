@@ -17,12 +17,7 @@ int	size_flag(char *a, t_flag *flag, size_t s)
 	if (flag->flag_5 == 0 && flag->l == 0 && flag->ll == 0 &&
 		flag->hh == 0 && flag->h == 0)
 	{
-		if (*a == 'j' || *a == 'z')
-		{
-			flag->ll++;
-			return (1);
-		}
-		if (*a == 'L')
+		if (*a == 'j' || *a == 'z' || *a == 'L')
 		{
 			flag->ll++;
 			return (1);

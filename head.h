@@ -6,7 +6,7 @@
 /*   By: ahalmon- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 22:23:51 by ahalmon-          #+#    #+#             */
-/*   Updated: 2019/06/29 20:13:28 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/06/30 16:43:04 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ size_t	max_sizes(t_list *lst);
 char	*itoa_alignment(t_list *lst);
 char	*float_part(unsigned long int mantisa, unsigned int num_bits);
 char	one_num_from_multi(char *num, size_t *ind_in);
-size_t out_round(char *num, size_t accuracy);
+size_t	out_round(char *num, size_t accuracy);
 char	*ft_round(char *num, size_t accuracy);
 int		flag_end(char str);
 size_t	printer(t_flag *flag, uintmax_t i);

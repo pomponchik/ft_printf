@@ -6,17 +6,17 @@
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/29 20:43:37 by kbethany          #+#    #+#             */
-/*   Updated: 2019/06/29 20:45:05 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/06/30 17:11:46 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-char *integer_part(unsigned long int mantisa, unsigned int num_bits)
+char	*integer_part(unsigned long int mantisa, unsigned int num_bits)
 {
-	char *listing;
-	size_t index;
-	char *result;
+	char	*listing;
+	size_t	index;
+	char	*result;
 
 	if (!(listing = ft_bits_listing(&mantisa, sizeof(unsigned long int))))
 		return (NULL);
@@ -27,8 +27,8 @@ char *integer_part(unsigned long int mantisa, unsigned int num_bits)
 	while (listing[index] && num_bits)
 	{
 		if (listing[index] == '1')
-			result = ft_math_longar_str_add_free_both(result, \
-													  ft_math_longar_str_exponent_mix("2", (unsigned long int)num_bits - 1));
+			result = ft_math_longar_str_add_free_both(result,
+		ft_math_longar_str_exponent_mix("2", (unsigned long int)num_bits - 1));
 		num_bits--;
 		index++;
 	}
@@ -36,12 +36,12 @@ char *integer_part(unsigned long int mantisa, unsigned int num_bits)
 	return (ft_strjoin_free_1(result, "."));
 }
 
-char *two_five(size_t two)
+char	*two_five(size_t two)
 {
-	char *result;
-	char *t;
-	char *f;
-	size_t size;
+	char	*result;
+	char	*t;
+	char	*f;
+	size_t	size;
 
 	t = ft_math_longar_str_exponent_mix("2", (unsigned long int)two);
 	f = ft_math_longar_str_exponent_mix("5", (unsigned long int)two);
@@ -59,11 +59,11 @@ char *two_five(size_t two)
 	return (f);
 }
 
-char *itoa_adder(t_list *lst)
+char	*itoa_adder(t_list *lst)
 {
-	char *result;
-	t_list *temp;
-	char *res_2;
+	char	*result;
+	t_list	*temp;
+	char	*res_2;
 
 	temp = lst;
 	if (!(result = ft_strdup("0")))
@@ -85,9 +85,9 @@ char *itoa_adder(t_list *lst)
 	return (res_2);
 }
 
-size_t max_sizes(t_list *lst)
+size_t	max_sizes(t_list *lst)
 {
-	size_t result;
+	size_t	result;
 
 	result = 0;
 	while (lst)
@@ -99,11 +99,11 @@ size_t max_sizes(t_list *lst)
 	return (result);
 }
 
-char *itoa_alignment(t_list *lst)
+char	*itoa_alignment(t_list *lst)
 {
-	t_list *temp;
-	size_t max_size;
-	size_t this_size;
+	t_list	*temp;
+	size_t	max_size;
+	size_t	this_size;
 
 	if (!lst)
 		return (ft_strdup("0"));
@@ -117,7 +117,7 @@ char *itoa_alignment(t_list *lst)
 			if (this_size != max_size)
 			{
 				lst->content = ft_strjoin_fr_both(lst->content, \
-												  ft_strnew_filler(max_size - this_size, '0'));
+				ft_strnew_filler(max_size - this_size, '0'));
 				lst->content = ft_strjoin_free_2("1", lst->content);
 			}
 		}

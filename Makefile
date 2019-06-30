@@ -39,6 +39,13 @@ SRC =  check_flags.c \
 		size_flag.c \
 		printer.c \
 		ft_itoa_specific.c \
+		ft_itoa_specific_part_I.c \
+		ft_itoa_specific_part_II.c \
+		fixer_free.c \
+		fixer_num.c \
+		fixer_p.c \
+		fixer_str.c \
+		fixer.c \
 
 OBJ = $(SRC:.c=.o)
 
