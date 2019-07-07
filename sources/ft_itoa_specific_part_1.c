@@ -43,6 +43,7 @@ char	one_num_from_multi(char *num, size_t *ind_in)
 {
 	size_t	ind_out;
 
+	*ind_in = 0;
 	if (!*(num + 1))
 	{
 		*ind_in = 0;
@@ -90,8 +91,8 @@ char	*ft_round(char *num, size_t accuracy)
 	size_t	size;
 
 	if (ft_strlen(ft_strchr(num, '.') + 1) < accuracy)
-		num = ft_strjoin_fr_both(num, ft_strnew_filler(accuracy - \
-			ft_strlen(ft_strchr(num, '.') + 1), '0'));
+		return (ft_strjoin_fr_both(num, ft_strnew_filler(accuracy - \
+			ft_strlen(ft_strchr(num, '.') + 1), '0')));
 	temp = ft_strchr(num, '.') + 1;
 	one_num_from_multi(temp + accuracy, &indicate);
 	temp[accuracy] = '\0';
