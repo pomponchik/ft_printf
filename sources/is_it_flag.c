@@ -16,7 +16,7 @@ int	flag_end(char s)
 {
 	if (s == 'c' || s == 'f' || s == 'd' || s == 's' || s == 'i' || s == 'o' ||
 		s == 'u' || s == 'x' || s == 'X' || s == 'p' || s == '%' || s == 'U' ||
-		s == 'D' || s == 'O' || s == 'F')
+		s == 'D' || s == 'O' || s == 'F' || s == 'g')
 		return (1);
 	return (0);
 }

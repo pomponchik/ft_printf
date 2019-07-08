@@ -26,7 +26,8 @@ size_t	out_from_flag(t_flag *flag, va_list *arguments)
 		return (print_flag_d(flag, arguments));
 	else if (flag->flag_5 == 'f' || flag->flag_5 == 'F')
 		return (print_flag_f(flag, arguments));
-	else if (flag->flag_5 == 's' || flag->flag_5 == 'c' || flag->flag_5 == '%')
+	else if (flag->flag_5 == 's' || flag->flag_5 == 'c' ||
+	flag->flag_5 == '%' || flag->flag_5 == 'g')
 		return (print_flag_sc(flag, arguments));
 	return (0);
 }

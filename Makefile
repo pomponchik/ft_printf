@@ -22,7 +22,7 @@ DIR_S = sources
 
 DIR_O = temporary
 
-HEADER = include
+HEADER = -I include -I libft/includes
 
 SOURCES = check_flags.c first_flag_before.c flag_begin_chek.c \
 flag_nuller.c ft_itoa_base_long.c ft_printf.c is_it_flag.c \
@@ -47,7 +47,7 @@ $(NAME): $(OBJS)
 
 $(DIR_O)/%.o: $(DIR_S)/%.c
 	@mkdir -p temporary
-	@$(CC) $(FLAGS) -I $(HEADER) -o $@ -c $<
+	@$(CC) $(FLAGS) $(HEADER) -o $@ -c $<
 
 norme:
 	norminette ./libft/

@@ -38,9 +38,12 @@ size_t			print_flag_sc(t_flag *flag, va_list *arguments)
 		flag->ind_c = 1;
 		return (printer(flag, i));
 	}
-	else if (flag->flag_5 == '%')
+	else if (flag->flag_5 == '%' || flag->flag_5 == 'g')
 	{
-		flag->str = ft_strdup("%");
+		if (flag->flag_5 == '%')
+			flag->str = ft_strdup("%");
+		else
+			flag->str = ft_strdup("govno jopa barebuh suka");
 		return (printer(flag, i));
 	}
 	return (0);

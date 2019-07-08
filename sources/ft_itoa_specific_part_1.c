@@ -6,13 +6,13 @@
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/30 16:40:47 by kbethany          #+#    #+#             */
-/*   Updated: 2019/06/30 16:45:43 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/07/08 14:27:21 by ahalmon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-char	*float_part(unsigned long int mantisa, unsigned int num_bits)
+char		*float_part(unsigned long int mantisa, unsigned int num_bits)
 {
 	char	*listing;
 	size_t	index;
@@ -39,7 +39,7 @@ char	*float_part(unsigned long int mantisa, unsigned int num_bits)
 	return (itoa_alignment(lst));
 }
 
-char	one_num_from_multi(char *num, size_t *ind_in)
+char		one_num_from_multi(char *num, size_t *ind_in)
 {
 	size_t	ind_out;
 
@@ -62,7 +62,7 @@ char	one_num_from_multi(char *num, size_t *ind_in)
 	return (*num);
 }
 
-size_t	out_round(char *num, size_t accuracy)
+size_t		out_round(char *num, size_t accuracy)
 {
 	size_t	ind;
 
@@ -84,15 +84,15 @@ size_t	out_round(char *num, size_t accuracy)
 	return (0);
 }
 
-char	*ft_round(char *num, size_t accuracy)
+char		*ft_round(char *num, size_t accuracy)
 {
 	char	*temp;
 	size_t	indicate;
 	size_t	size;
 
 	if (ft_strlen(ft_strchr(num, '.') + 1) < accuracy)
-		return (ft_strjoin_fr_both(num, ft_strnew_filler(accuracy - \
-			ft_strlen(ft_strchr(num, '.') + 1), '0')));
+		num = ft_strjoin_fr_both(num, ft_strnew_filler(accuracy - \
+		ft_strlen(ft_strchr(num, '.') + 1), '0'));
 	temp = ft_strchr(num, '.') + 1;
 	one_num_from_multi(temp + accuracy, &indicate);
 	temp[accuracy] = '\0';
@@ -109,7 +109,7 @@ char	*ft_round(char *num, size_t accuracy)
 	return (ft_strdup_free(num));
 }
 
-char	*ft_itoa_accuracy(t_double *fl)
+char		*ft_itoa_accuracy(t_double *fl)
 {
 	char	*result;
 
