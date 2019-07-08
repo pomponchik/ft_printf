@@ -31,7 +31,7 @@ post_persent.c print_flag_d.c print_flag_f.c print_flag_o.c \
 print_flag_p.c print_flag_sc.c print_flag_u.c print_flag_x.c \
 second_flag.c size_flag.c printer.c ft_itoa_specific.c \
 ft_itoa_specific_part_1.c ft_itoa_specific_part_2.c fixer_free.c \
-fixer_num.c fixer_p.c fixer_str.c fixer.c charer.c
+fixer_num.c fixer_p.c fixer_str.c fixer.c charer.c lst_print.c
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 
