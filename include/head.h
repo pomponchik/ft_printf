@@ -115,5 +115,6 @@ int							only_1_flag(t_flag *flag);
 void						flag_nuller(t_flag *flag);
 char						*ft_itoa_specific(long double num, size_t accuracy);
 char						*lst_print_cs(void *point);
+char						*lst_print_deduplication(void *point);
 
 #endif

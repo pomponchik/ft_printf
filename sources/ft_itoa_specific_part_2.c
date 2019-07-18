@@ -20,10 +20,12 @@ char	*integer_part(unsigned long int mantisa, unsigned int num_bits)
 
 	if (!(listing = ft_bits_listing(&mantisa, sizeof(unsigned long int))))
 		return (NULL);
+	ft_str_reverse(listing);
+	if (!num_bits || num_bits == 32766)
+		return (ft_strdup("0"));
 	if (!(result = ft_strdup("0")))
 		return (ft_free(listing));
 	index = 0;
-	ft_str_reverse(listing);
 	while (listing[index] && num_bits)
 	{
 		if (listing[index] == '1')
@@ -33,7 +35,7 @@ char	*integer_part(unsigned long int mantisa, unsigned int num_bits)
 		index++;
 	}
 	free(listing);
-	return (ft_strjoin_free_1(result, "."));
+	return (result);
 }
 
 char	*two_five(size_t two)
