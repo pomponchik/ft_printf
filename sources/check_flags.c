@@ -12,6 +12,35 @@
 
 #include "head.h"
 
+size_t bonus_part(char *s, t_flag *flag)
+{
+	if (ft_strnstr(s, "list", 4))
+	{
+		flag->flag_5 = 'q';
+		return (4);
+	}
+	if (ft_strnstr(s, "file", 4))
+	{
+		flag->flag_5 = 'y';
+		return (4);
+	}
+	if (ft_strnstr(s, "dlist", 5))
+	{
+		flag->flag_5 = 'e';
+		return (5);
+	}
+	if (*s == 'c' || *s == 'f' || *s == 'd' || *s == 's' || *s == 'i' ||
+		*s == 'o' || *s == 'u' || *s == 'x' || *s == 'X' || *s == 'p' ||
+		*s == 'b' || *s == '%' || *s == 'U' || *s == 'D' || *s == 'O' ||
+		*s == 'F' || *s == 'g')
+	{
+		flag->flag_5 = *s;
+		return (1);
+	}
+	return (0);
+}
+
+
 size_t	check_flags(char *str, t_flag *flag)
 {
 	size_t	index;
@@ -19,10 +48,9 @@ size_t	check_flags(char *str, t_flag *flag)
 	index = 0;
 	while (str[index])
 	{
-		if (flag_end(str[index]))
+		if (flag_end(&str[index]))
 		{
-			flag->flag_5 = str[index];
-			index++;
+			index += bonus_part(&str[index], flag);
 			if (flag->ll && (flag->flag_5 == 'O' || flag->flag_5 == 'U' ||
 			flag->flag_5 == 'D'))
 			{

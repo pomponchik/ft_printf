@@ -18,7 +18,7 @@ size_t	ok(char *str, t_flag *flag)
 	size_t	temp;
 
 	num = 0;
-	while (!flag_end(str[num]))
+	while (!flag_end(&str[num]))
 	{
 		temp = 0;
 		if (flag_begin_chek(&str[num + temp], flag))

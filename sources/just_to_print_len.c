@@ -20,7 +20,7 @@ static size_t	just_to_print_len_helper(char *str, \
 	if (str[*i] == '%')
 	{
 		(*i)++;
-		if (is_it_flag(&str[*i]) > 0 || flag_end(str[*i]))
+		if (is_it_flag(&str[*i]) > 0 || flag_end(&str[*i]))
 		{
 			ft_lstadd(lst, ft_lstnew_no_copy((temp = \
 				ft_strdup_n(str, *i - 1)), *i - 1));

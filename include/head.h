@@ -20,6 +20,13 @@
 # include "libft.h"
 # include <errno.h>
 
+typedef struct				s_file_print
+{
+	void *mem;
+	size_t size;
+}							t_file_print;
+
+
 typedef struct				s_flags
 {
 	t_list					*lst;
@@ -41,7 +48,10 @@ typedef struct				s_flags
 	char					*str;
 	int						i;
 	char					ind_c;
+	t_file_print file;
 }							t_flag;
+
+
 
 typedef struct				s_printf
 {
@@ -64,6 +74,7 @@ typedef union				u_double
 	}						s_parts;
 }							t_double;
 
+size_t 					bonus_part(char *s, t_flag *flag);
 void						charer(t_flag *flag, size_t *len);
 char						*ft_itoa_accuracy(t_double *fl);
 char						*integer_part(unsigned long int \
@@ -77,7 +88,7 @@ char						*float_part(unsigned long int mantisa, \
 char						one_num_from_multi(char *num, size_t *ind_in);
 size_t						out_round(char *num, size_t accuracy);
 char						*ft_round(char *num, size_t accuracy);
-int							flag_end(char str);
+int							flag_end(char *s);
 size_t						printer(t_flag *flag, uintmax_t i);
 size_t						out_str(char *str);
 void						first_flag_before(long long int i, t_flag *flag);
@@ -116,5 +127,6 @@ void						flag_nuller(t_flag *flag);
 char						*ft_itoa_specific(long double num, size_t accuracy);
 char						*lst_print_cs(void *point);
 char						*lst_print_deduplication(void *point);
+size_t						print_flag_bonus(t_flag *flag, va_list *arguments);
 
 #endif
