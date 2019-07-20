@@ -26,11 +26,11 @@ size_t	ok(char *str, t_flag *flag)
 		if (str[num + temp] == '.')
 		{
 			flag->dot = 1;
-			temp++;
-			if (str[num + temp] > '0' && str[num + temp] <= '9')
+			flag->after_flag = 1;
+			if (str[num + temp + 1] >= '0' && str[num + temp + 1] <= '9')
 			{
-				flag->after_dot = ft_atoi(str + num + temp);
-				temp += ft_math_numlen_long((long int)flag->after_dot);
+				flag->after_dot = ft_atoi(str + num + temp + 1);
+				temp += ft_math_numlen_long((long int)flag->after_dot) + 1;
 			}
 		}
 		else if (!flag->dot && second_flag(&str[num + temp], flag))

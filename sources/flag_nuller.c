@@ -29,7 +29,7 @@ void	flag_nuller(t_flag *flag)
 	flag->hh = 0;
 	flag->flag_5 = 0;
 	flag->before_flag = 0;
-	flag->after_flag = -1;
+	flag->after_flag = 0;
 	flag->str = NULL;
 	flag->i = 0;
 	flag->ind_c = 0;

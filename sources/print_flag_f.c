@@ -20,7 +20,7 @@ size_t	print_flag_f(t_flag *flag, va_list *arguments)
 		i = va_arg(*arguments, long double);
 	else
 		i = va_arg(*arguments, double);
-	if (flag->after_dot != -1)
+	if (flag->after_flag)
 		flag->str = ft_itoa_specific(i, flag->after_dot);
 	else
 		flag->str = ft_itoa_specific(i, 6);

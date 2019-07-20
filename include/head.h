@@ -6,7 +6,7 @@
 /*   By: ahalmon- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 22:23:51 by ahalmon-          #+#    #+#             */
-/*   Updated: 2019/06/30 19:38:11 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/07/20 17:20:24 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@
 
 typedef struct				s_file_print
 {
-	void *mem;
-	size_t size;
+	void					*mem;
+	size_t					size;
 }							t_file_print;
-
 
 typedef struct				s_flags
 {
@@ -39,7 +38,7 @@ typedef struct				s_flags
 	int						before_dot;
 	char					before_flag;
 	int						after_dot;
-	char					after_flag;
+	int						after_flag;
 	char					l;
 	char					ll;
 	char					h;
@@ -48,10 +47,8 @@ typedef struct				s_flags
 	char					*str;
 	int						i;
 	char					ind_c;
-	t_file_print file;
+	t_file_print			file;
 }							t_flag;
-
-
 
 typedef struct				s_printf
 {
@@ -74,7 +71,7 @@ typedef union				u_double
 	}						s_parts;
 }							t_double;
 
-size_t 					bonus_part(char *s, t_flag *flag);
+size_t						bonus_part(char *s, t_flag *flag);
 void						charer(t_flag *flag, size_t *len);
 char						*ft_itoa_accuracy(t_double *fl);
 char						*integer_part(unsigned long int \

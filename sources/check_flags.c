@@ -6,13 +6,13 @@
 /*   By: kbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 17:59:56 by kbethany          #+#    #+#             */
-/*   Updated: 2019/06/15 15:31:04 by kbethany         ###   ########.fr       */
+/*   Updated: 2019/07/20 17:23:20 by kbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-size_t bonus_part(char *s, t_flag *flag)
+size_t	bonus_part(char *s, t_flag *flag)
 {
 	if (ft_strnstr(s, "list", 4))
 	{
@@ -39,7 +39,6 @@ size_t bonus_part(char *s, t_flag *flag)
 	}
 	return (0);
 }
-
 
 size_t	check_flags(char *str, t_flag *flag)
 {
